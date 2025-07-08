@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import favFill from "../assets/fav_with_fill.png";
+import favEmpty from "../assets/fav_without_fill.png";
 
 function MovieSearch({movie}){
 
@@ -46,15 +48,13 @@ function MovieSearch({movie}){
                 <div className="flex justify-between items-center">
                     <h1 className="text-[16px] font-bold mt-[15px]">{movie.Title}</h1>
                     <button onClick={toggleFavourite}>
-                        {isFav ? (
-                            
-                            <img src="/src/assets/fav_with_fill.png" className="mt-[15px] h-[20px] w-[25px] cursor-pointer"></img>
-                            
-                        ) : (
-                            
-                            <img src="/src/assets/fav_without_fill.png" className="mt-[15px] h-[20px] w-[19px] cursor-pointer"></img>
-                            
-                        )}
+
+                        <img
+                            src={isFav ? favFill : favEmpty}
+                            alt="Favourite"
+                            className={`h-[20px] ${isFav ? "w-[25px]" : "w-[19px]"} mt-[15px] cursor-pointer`}
+                        />
+
                     </button> 
 
                 </div>
